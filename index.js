@@ -20,7 +20,7 @@ class CountdownTimer {
     clock.textContent = `${days}:${hours}:${mins}:${secs}`;
   }
 
-  startTimer() {
+  timeCount() {
     const currentTime = Date.now();
     const time = this.targetDate - currentTime;
     const numbers = this.getTimeComponents(time);
@@ -32,8 +32,11 @@ class CountdownTimer {
       clock.textContent = 'Happy Birthday to ME';
       return;
     }
+  }
+  startTimer() {
+    this.timeCount();
     this.intervalID = setInterval(() => {
-      this.startTimer();
+      this.timeCount();
     }, 1000);
   }
 
